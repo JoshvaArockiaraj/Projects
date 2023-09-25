@@ -4,9 +4,6 @@ import webbrowser
 # Initialize the recognizer
 recognizer = sr.Recognizer()
 
-# Set the browser to Google Chrome
-chrome_browser = webbrowser.get('chrome')
-
 # Use the microphone as the audio source
 with sr.Microphone() as source:
     print("Say something...")
@@ -23,7 +20,7 @@ with sr.Microphone() as source:
         if "open" in text:
             # Extract the URL from the recognized speech
             url = text.split("open", 1)[1].strip()
-            chrome_browser.open(url)  # Open in Google Chrome
+            webbrowser.open(url)
         else:
             print("Command not recognized.")
 
